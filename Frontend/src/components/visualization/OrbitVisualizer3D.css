@@ -1,0 +1,262 @@
+/* ============================================
+   OrbitVisualizer3D - Scoped Styles
+   All classes prefixed with .exo-orbit-3d
+   ============================================ */
+
+.exo-orbit-3d__container {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  height: 600px;
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border) / 0.5);
+}
+
+.exo-orbit-3d__canvas-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Top Controls */
+.exo-orbit-3d__top-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.exo-orbit-3d__control-btn {
+  backdrop-filter: blur(8px);
+  background: hsl(var(--background) / 0.7) !important;
+  border: 1px solid hsl(var(--border) / 0.5);
+  transition: all 0.2s;
+}
+
+.exo-orbit-3d__control-btn:hover {
+  background: hsl(var(--muted) / 0.9) !important;
+  border-color: hsl(var(--primary) / 0.5);
+  transform: translateY(-2px);
+}
+
+/* Main Controls Panel */
+.exo-orbit-3d__controls-panel {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: hsl(var(--background) / 0.8);
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  min-width: 500px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exo-orbit-3d__control-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.exo-orbit-3d__play-btn {
+  background: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  transition: all 0.2s;
+}
+
+.exo-orbit-3d__play-btn:hover {
+  background: hsl(var(--primary) / 0.9) !important;
+  transform: scale(1.05);
+}
+
+.exo-orbit-3d__speed-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.exo-orbit-3d__time-scrub {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exo-orbit-3d__toggles {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid hsl(var(--border) / 0.3);
+}
+
+.exo-orbit-3d__toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Info Panel */
+.exo-orbit-3d__info-panel {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: hsl(var(--background) / 0.9);
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  min-width: 280px;
+  max-width: 320px;
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.exo-orbit-3d__info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+/* Tooltip */
+.exo-orbit-3d__tooltip {
+  background: hsl(var(--background) / 0.95);
+  border: 1px solid hsl(var(--primary) / 0.5);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  pointer-events: none;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+/* Help Overlay */
+.exo-orbit-3d__help {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  background: hsl(var(--background) / 0.6);
+  border: 1px solid hsl(var(--border) / 0.3);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.exo-orbit-3d__help kbd {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  margin-right: 0.25rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .exo-orbit-3d__container {
+    min-height: 300px;
+    height: 400px;
+  }
+  
+  .exo-orbit-3d__controls-panel {
+    min-width: auto;
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+  }
+  
+  .exo-orbit-3d__toggles {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .exo-orbit-3d__info-panel {
+    width: calc(100% - 2rem);
+    max-width: none;
+    left: 1rem;
+    right: 1rem;
+  }
+  
+  .exo-orbit-3d__help {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .exo-orbit-3d__container {
+    min-height: 250px;
+    height: 350px;
+  }
+  
+  .exo-orbit-3d__control-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .exo-orbit-3d__speed-control {
+    width: 100%;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .exo-orbit-3d__controls-panel {
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
+  }
+  
+  .exo-orbit-3d__info-panel {
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
+  }
+}
+
+/* Loading state */
+.exo-orbit-3d__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--background) / 0.9);
+  z-index: 20;
+}
+
+/* Fallback for no WebGL */
+.exo-orbit-3d__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: hsl(var(--background));
+}
+
+.exo-orbit-3d__fallback-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
